@@ -9,7 +9,7 @@
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
-          <%= link_to "削除する", prototype_path(@prototype.id), method: :delete, class: :prototype__btn %>
+          <%= link_to "削除する", prototype_path(@prototype), method: :delete, class: :prototype__btn %>
         </div>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <% end %>
@@ -49,7 +49,7 @@
           <% @comments.each do |comment| %>
             <li class="comments_list">
               <%= comment.content %>
-              <%= link_to comment.user.name, user_path(@prototype), class: :comment_user %>
+              <%= link_to comment.user.name, user_path(@prototype.user.id), class: :comment_user %>
             </li>
           <% end %>
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
